@@ -1,4 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/client";
+import TodoList from "../components/TodoList";
+import NewTodoForm from "../components/NewTodoForm";
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -14,6 +16,8 @@ export default function Home() {
         <>
           サインイン完了。 email: {session.user.email} <br />
           <button onClick={signOut}>Sign out</button>
+          <NewTodoForm />
+          <TodoList />
         </>
       )}
     </>
